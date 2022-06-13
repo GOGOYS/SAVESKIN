@@ -44,7 +44,7 @@ public class UserController {
 		}
 		
 		
-		return "user/user_login";
+		return "redirect:/";
 	}
 	
 	
@@ -77,7 +77,7 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("USER");
 		
-		return "user/user_login";
+		return "redirect:/";
 	}
 	
 		

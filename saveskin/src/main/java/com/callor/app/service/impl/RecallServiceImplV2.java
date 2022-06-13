@@ -79,4 +79,10 @@ public class RecallServiceImplV2 implements RecallService {
 
 	}
 
+	@Override
+	public String queryString5() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

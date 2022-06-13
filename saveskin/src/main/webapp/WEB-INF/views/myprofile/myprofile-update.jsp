@@ -66,7 +66,7 @@
 
 
 <%@ include file="/WEB-INF/views/include/include_footer.jsp" %>
-<script src="${rootPath}/static/js/user-update.js?ver=2022-06-12-008">
+<script src="${rootPath}/static/js/user-update.js?ver=2022-06-12-009">
 </script>
 </body>
 </html>

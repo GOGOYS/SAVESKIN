@@ -43,6 +43,21 @@ public class RecallServiceImplV3 implements RecallService {
 //		return queryString;
 
 	}
+	
+	@Override
+	public String queryString5() {
+
+		String queryString = RecallAPIConfig.URL;
+
+		queryString += "?serviceKey=%s";
+		queryString += "&pageNo=%d";
+		queryString += "&cntPerPage=%d";
+		queryString += "&cntntsId=%s";
+
+		return String.format(queryString, RecallAPIConfig.SERVICE_KEY,1,5,"0206");
+//		return queryString;
+
+	}
 
 	@Override
 	public RecallReturn getRecallList(String queryString) {
@@ -57,6 +72,59 @@ public class RecallServiceImplV3 implements RecallService {
 			log.debug(queryString);
 
 			restURI = new URI(queryString);
+
+			// Http 프로토콜에 보안 정보를 세팅하여
+			// Naver 로 전송할 준비
+			HttpHeaders headers = new HttpHeaders();
+
+			// JSON 데이터 타입으로 받겠다
+			headers.setAccept(
+					Collections.singletonList(
+							MediaType.APPLICATION_XML));
+			
+			HttpEntity<String> entity 
+			= new HttpEntity<String>("parameter",headers);
+
+			
+			// xml을 data로 변환할때 사용할 객체(도구)
+			 ResponseEntity<String> strResult = null;
+			 strResult = restTemp.exchange(restURI, HttpMethod.GET, entity, String.class);
+			 log.debug(strResult.getBody());
+			 
+			 ObjectMapper mapper = new XmlMapper();
+			 RecallNS recallNs = mapper.readValue(strResult.getBody(),RecallNS.class); 
+			 log.debug(recallNs.channel.recallReturn.toString());
+			 
+			 // return recallNs.channel.recallReturn.content;
+			 return recallNs.channel.recallReturn;
+
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	
+
+	public RecallReturn getRecallList5(String queryString5) {
+
+		// RestTemplate를 사용하여 api에 보낼 URI를 생성
+		URI restURI = null;
+
+		// 생성된 URI를 api 서버에 보내서 데이터를 수신할 객체(도구)
+		RestTemplate restTemp = new RestTemplate();
+
+		try {
+			log.debug(queryString5);
+
+			restURI = new URI(queryString5);
 
 			// Http 프로토콜에 보안 정보를 세팅하여
 			// Naver 로 전송할 준비

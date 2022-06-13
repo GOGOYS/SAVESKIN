@@ -40,7 +40,6 @@
 
 	<update id="update" parameterType="UserVO">
 		UPDATE tbl_user SET
-			userid = #{userid}
 			password = #{password},
 			email = #{email},
 			role =#{role}

@@ -15,5 +15,7 @@
 <script src="${rootPath}/static/js/sw.js?ver=2022-05-28-003"></script>
 <script src="${rootPath}/static/js/recall.js?ver=2022-06-10-001"></script>
 <link rel="stylesheet" href="${rootPath}/static/css/nav.css?ver=2022-06-10-001">
-
+<script>
+	rootPath = "${rootPath}"
+</script>
 </head>
