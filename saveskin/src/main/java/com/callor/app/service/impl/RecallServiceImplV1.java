@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class RecallServiceImplV1 implements RecallService {
 
 	@Override
-	public String queryString() {
+	public String queryString(int num) {
 
 		String queryString = RecallAPIConfig.URL;
 
@@ -33,7 +33,7 @@ public class RecallServiceImplV1 implements RecallService {
 		queryString += "&cntPerPage=%d";
 		queryString += "&cntntsId=%s";
 
-		return String.format(queryString, RecallAPIConfig.SERVICE_KEY,1,10,"0206");
+		return String.format(queryString, RecallAPIConfig.SERVICE_KEY,1,num,"0206");
 //		return queryString;
 
 	}
@@ -77,12 +77,6 @@ public class RecallServiceImplV1 implements RecallService {
 		}
 		return null;
 
-	}
-
-	@Override
-	public String queryString5() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <header>
 
 
@@ -33,18 +33,13 @@
 			<div id="bell-see">
 				<a href="#"><i onclick="HideBell()" class="fa-solid fa-x"></i></a>
 				<p>알림 확인 해라</p>
-				<div class="bell-box">
-					<a href="${rootPath}/recall/racall_detail">이것은 리콜정보에 대한 알림</a>
-				</div>
-				<div class="bell-box">
-					<a href="${rootPath}/recall/racall_detail">어느 화장품이 리콜을 했을까요~</a>
-				</div>
-				<div class="bell-box">
-					<a href="${rootPath}/recall/racall_detail">이것은 리콜정보에 대한 알림</a>
-				</div>
-				<div class="bell-box">
-					<a href="${rootPath}/recall/racall_detail">이것은 리콜정보에 대한 알림</a>
-				</div>
+
+				<c:forEach items="${RECALLS}" var="RECALL" varStatus="INDEX">
+					<div data-recallsn="${RECALL.recallSn}" class="bell-box">
+						<a href="${rootPath}/recall/racall_detail">&lt;${INDEX.count}&gt;
+							${RECALL.productNm}</a>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 		<ul id="menu">

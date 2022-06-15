@@ -32,7 +32,14 @@ section h1 {
   border-style: none;
   border-radius: 0 10px 10px 0;
 }
-
+.error {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
 .post-list p {
   margin-top: 70px;
   margin-bottom: 10px;
@@ -59,6 +66,10 @@ section h1 {
 }
 .post-list td:not(:nth-of-type(2)) {
   text-align: center;
+}
+.error div {
+	display: inline-block;
+	margin: 0 auto;
 }
 #paging {
   line-height: 36px;

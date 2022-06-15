@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet"
-	href="${rootPath}/static/css/mainpage.css?ver=2022-06-10-006">
+	href="${rootPath}/static/css/mainpage.css?ver=2022-06-16-002">
+
 
 <div id="search-background">
 	<div id="search">
@@ -53,36 +54,20 @@
 	<article>
 		<div class="table-title">
 			<h1>화장품 심사정보 리스트</h1>
-			<a href="${rootPath}/info/info_list">더보기<i
+			<a href="${rootPath}/recall/recall_list">더보기<i
 				class="fa-solid fa-angle-right"></i></a>
 		</div>
 		<div class="border-bottom"></div>
-		<table>
-			<tr>
-				<td><a href="${rootPath}/info/info_detail">일리윤
-						울트라 리페어 로션</a></td>
-				<td><a href="${rootPath}/info/info_detail">2022-05-16</a></td>
-			</tr>
-			<tr>
-				<td><a href="${rootPath}/info/info_detail">리바이탈
-						라이징 수프림 플러스너리싱 앤...</a></td>
 
-				<td><a href="${rootPath}/info/info_detail">2022-05-16</a></td>
-			</tr>
-			<tr>
-				<td><a href="${rootPath}/info/info_detail">고원 까마중비누</a></td>
-				<td><a href="${rootPath}/info/info_detail">2022-05-16</a></td>
-			</tr>
-			<tr>
-				<td><a href="${rootPath}/info/info_detail">프렌비타스킨
-						필터링 마스크 영양 필터링...</a></td>
-				<td><a href="${rootPath}/info/info_detail">2022-05-16</a></td>
-			</tr>
-			<tr>
-				<td><a href="${rootPath}/info/info_detail">네츄럴 헤나</a></td>
-				<td><a href="${rootPath}/info/info_detail">2022-05-16</a></td>
-			</tr>
-		</table>
+		<c:forEach items="${INFOLIST}" var="INFO">
+				<table>
+					<tr>
+						<td>${INFO.ENTP_NAME}</td>
+						<td>${INFO.ENTP_PERMIT_DATE}</td>
+					</tr>
+				</table>
+		</c:forEach>
+		
 	</article>
 	<article>
 		<div class="table-title">

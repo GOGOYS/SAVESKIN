@@ -10,8 +10,9 @@ create table tbl_board (
     b_title       nvarchar2(50)     not null,       -- 제목
     b_content     nvarchar2(1000)   not null,       -- 내용
     b_hit         NUMBER            ,               -- 조회수
-    b_writer      nvarchar2(25)     not null,       -- 작성자
-    b_date        varchar2(8)       ,               -- 작성일
+    b_writer      nvarchar2(25)     ,       -- 작성자
+    b_date        varchar2(10)       NOT NULL ,     -- 작성일
+	b_time		VARCHAR2(10) 	 NOT NULL,      -- 작성시간
     CONSTRAINT b_pk  PRIMARY KEY (b_num)
 );
 
