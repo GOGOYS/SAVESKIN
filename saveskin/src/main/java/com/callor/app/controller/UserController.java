@@ -41,12 +41,17 @@ public class UserController {
 		
 		if(userVO.getUserid().equals(loginUserVO.getUserid())) {
 			session.setAttribute("USER", loginUserVO);
-		}else if(!userVO.getUserid().equals(loginUserVO.getUserid())) {
-			return "/user/user_join";
+			return "redirect:/";
+		}else if(!userVO.getUserid().equals(loginUserVO.getUserid())){
+			loginMessage = "FAIL";
+		}else if(!userVO.getUserid().equals(loginUserVO.getUserid())){
+			
 		}
 		
+		model.addAttribute("MASSAGE","FAIL");
+		return "/user/user_login";
 		
-		return "redirect:/";
+		
 	}
 	
 	
@@ -79,12 +84,8 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("USER");
 		
-		return "user/user_login";
+		return "redirect:/user/user_login";
 	}
-	
-		
-		
-		
 	
 	//TODO ID 중복검사
 	@ResponseBody

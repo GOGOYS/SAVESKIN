@@ -6,7 +6,7 @@
 <head>
 <%@ include file="/WEB-INF/views/include/include_head.jsp"%>
 <link rel="stylesheet"
-	href="${rootPath}/static/css/recall_list.css?ver=2022-05-28-001">
+	href="${rootPath}/static/css/recall_list.css?ver=2022-06-16-002">
 <script>
 	const rootPath = '${rootPath}'
 </script>
@@ -55,7 +55,8 @@
 					</table>
 				</article>
 			</c:if>
-	<span class="error"> <c:if test="${not empty ERROR}">
+	<span class="error"> 
+		<c:if test="${not empty ERROR}">
 			<div>일치하는 결과가 없습니다</div>
 		</c:if>
 	</span>

@@ -7,6 +7,7 @@
 <body>
 <%@ include file="/WEB-INF/views/include/include_nav.jsp" %>
 <%@ include file="/WEB-INF/views/pages/main.jsp" %>
+<%@ include file="/WEB-INF/views/pages/mainTable.jsp" %>
 <%@ include file="/WEB-INF/views/include/include_footer.jsp" %>
 </body>
 </html>

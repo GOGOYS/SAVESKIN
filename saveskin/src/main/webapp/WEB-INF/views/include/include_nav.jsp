@@ -21,8 +21,7 @@
 			<c:when test="${not empty USER}">
 				<div class="loginwrap">
 					<ul class="login">
-						<li><a href="${rootPath}/user/user_join">회원가입</a></li>
-						<li><a href="${rootPath}/user/user_logout">로그아웃</a></li>
+						<li style="padding-right:0px!important"><a href="${rootPath}/user/user_logout">로그아웃</a></li>
 						<li><a href="#"><i onclick="ShowBell()"
 								class="fa-solid fa-bell"></i></a></li>
 					</ul>
@@ -47,7 +46,7 @@
 					name="home" src="${rootPath}/static/image/logo.png" /></a></li>
 
 			<li><a href="${rootPath}/recall/recall_list">리콜정보</a></li>
-			<li><a href="${rootPath}/info/info_list">화장품 심사정보</a></li>
+			<li><a href="${rootPath}/info/info_list">제조업 정보조회</a></li>
 			<li><a href="${rootPath}/board/board_list">커뮤니티</a></li>
 			<li><a href="${rootPath}/myprofile/myprofile">마이페이지</a></li>
 		</ul>

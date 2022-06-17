@@ -1,5 +1,6 @@
 package com.callor.app.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -41,7 +42,7 @@ public class HomeController {
 	
 	//TODO 메인 페이지
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(String search, Model model) {
 		//리콜정보 리스트
 		String queryString5 = recallService.queryString(5);
 		RecallReturn recallReturn5 = recallService.getRecallList(queryString5);
@@ -59,9 +60,35 @@ public class HomeController {
 		model.addAttribute("BOARDLIST", boardList);
 		
 		
-		
 		return "home";
 	}
 	
+	@RequestMapping(value="/", method=RequestMethod.POST)
+	public String search(String search, Model model) {
+		String queryString100 = recallService.queryString(100);
+		RecallReturn recallReturn100 = recallService.getRecallList(queryString100);
+		List<RecallVO> recallList100 = recallReturn100.content;
+		
+		
+		List<RecallVO> searchList = new ArrayList<>();
+
+		if (search != null) {
+			for (RecallVO vo : recallList100) {
+				if (vo.getProductNm().contains(search)) {
+					searchList.add(vo);
+				}
+			}
+		
+		
+			if (searchList.size() <1) {
+				model.addAttribute("ERROR","FAIL");
+			}
+			model.addAttribute("RECALLS", searchList);
+		}
+		return "/recall/recall_list";
+	}
+	
+
+
 	
 }

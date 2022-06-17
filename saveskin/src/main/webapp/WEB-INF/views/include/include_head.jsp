@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>saveskin</title>
+<title>SAVESKINㅣ나의 화장품 지킴이 </title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -21,4 +21,7 @@
 <script>
 	rootPath = "${rootPath}"
 </script>
+
+<link rel="shortcut icon" href="${rootPath}/static/image/favicon.ico" type="image/x-icon">
+<link rel="icon" href="${rootPath}/static/image/favicon.ico" type="image/x-icon">
 </head>

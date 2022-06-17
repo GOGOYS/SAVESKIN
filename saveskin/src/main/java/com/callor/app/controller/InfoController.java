@@ -44,7 +44,6 @@ public class InfoController {
 	@RequestMapping(value = "/info_list", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public String info_list(String search, Model model) {
 
-		log.debug("받은 검색어 {}", search);
 
 		String queryString10 = infoService.queryString("10");
 		InfoParent infoParent10 = infoService.getInfoList(queryString10);
